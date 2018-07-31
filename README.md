@@ -14,7 +14,6 @@ Create a basic handler class and it can be called from CapListener in order to r
 		cl = new CapListener(this);
 		tp = new Cap1xxxjava(cl);
 		//..........
-
 		Runnable checkInputs = new Runnable() {
 			public void run() {
 				cl.checkinputStatus(tp.readInputStatusSimple());
