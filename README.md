@@ -7,3 +7,11 @@ Uses pi4j for i2c communication and BitwiseUtil class from googles own library f
 
 Very simple to use and is mostly identical which the functionality this version offers with Pimoronis own code, I've not converted everything over however.
 
+Create a basic handler class and it can be called from CapListener in order to register button presses. I run the following, please note it does require a little delay otherwise it will lock itself.
+
+		Runnable checkInputs = new Runnable() {
+			public void run() {
+				cl.checkinputStatus(tp.readInputStatusSimple());
+			}
+		};
+		executor.scheduleAtFixedRate(checkInputs, 5, 1, TimeUnit.SECONDS);
